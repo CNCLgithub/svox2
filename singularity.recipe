@@ -1,0 +1,26 @@
+bootstrap: docker
+from: nvidia/cuda:11.1.1-cudnn8-devel-ubuntu20.04
+
+%environment
+	export PYTHONPATH=${PYTHONPATH}:/plenoxel
+	export PATH
+	
+%post
+	export DEBIAN_FRONTEND=noninteractive
+	apt-get update -y
+	apt update
+	apt-get -y install build-essential
+	apt-get install	-y	build-essential \
+				wget \
+				unzip \
+				git \
+				python3.8 \
+				python3.8-venv \
+				python3.8-dev \
+				python3-pip \
+				libglib2.0-0
+
+	apt-get clean
+	
+	/usr/bin/python3.8 -m pip install --upgrade pip
+    	/usr/bin/python3.8 -m pip install pipenv virtualenv
