@@ -1,3 +1,11 @@
+### Addition:
+You will find the original readme below. We added a singularity container, as well as scripts to set up the repository and run code within the container. To use, clone the repo, then call setup.sh cont_pull, followed by setup.sh python. This will pull the singularity container, then set up the python environment, install required packages, and compile the custom CUDA kernel. Afterwards, any scripts can be run through run.sh. The original launch.sh script will probably not work as intended here, and instead I recommend running 
+'''sh
+./run.sh opt/opt.py <data_directory> <optional args here>
+'''
+Possible optional args can be found in opt.py. One useful one is -t <save_directory>, where save_directory is probably opt/ckpt/<your_experiment_name>.
+
+
 # Plenoxels: Radiance Fields without Neural Networks
 
 Alex Yu\*, Sara Fridovich-Keil\*, Matthew Tancik, Qinhong Chen, Benjamin Recht, Angjoo Kanazawa
